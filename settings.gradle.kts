@@ -15,4 +15,4 @@ dependencyResolutionManagement {
 
 rootProject.name = "PhotoPicker"
 include(":app")
- 
+include(":opencv")
