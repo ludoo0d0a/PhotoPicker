@@ -3,6 +3,7 @@
 <p align="center">
 This app was created to learn more about Android compose using Photo Picker with PickVisualMedia.
 </p>
+<p>Next steps is to add OCR capabilties</p>
 
 ## Installation
 
