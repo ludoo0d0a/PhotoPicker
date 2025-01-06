@@ -38,6 +38,7 @@ import androidx.compose.ui.graphics.ImageBitmap
 import androidx.compose.ui.graphics.asAndroidBitmap
 import androidx.compose.ui.graphics.asImageBitmap
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.mun.bonecci.photopicker.MainViewModel
 import org.koin.compose.viewmodel.koinViewModel
@@ -80,7 +81,7 @@ fun ImageSegmenter(
         }
     }
 
-    Column(
+    Row(
         modifier = Modifier
             .fillMaxSize()
             .padding(16.dp)
@@ -134,4 +135,13 @@ fun ImageSegmenter(
             }
         }
     }
+}
+
+
+//preview ImageSegmenter
+@RequiresApi(Build.VERSION_CODES.O)
+@Preview
+@Composable
+fun ImageSegmenterPreview() {
+    ImageSegmenter()
 }

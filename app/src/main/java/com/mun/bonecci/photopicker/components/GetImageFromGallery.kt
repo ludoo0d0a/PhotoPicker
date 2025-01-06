@@ -72,7 +72,7 @@ import java.util.Date
  */
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
-fun GetImageFromGallery(viewModel: MainViewModel = koinViewModel()) {
+fun GetImageFromGallery(/*viewModel: MainViewModel = koinViewModel()*/) {
     // Retrieve the current context using LocalContext.current
     val context = LocalContext.current
 
@@ -182,11 +182,10 @@ fun GetImageFromGallery(viewModel: MainViewModel = koinViewModel()) {
                 MyCard{
                     TextRecognitionScreen(it.asAndroidBitmap())
                 }
-                // Car
-                MyCard{
-//                    ImageSegmenter(viewModel, it)
-                    ImageSegmenter(viewModel)
-                }
+//                MyCard{
+////                    ImageSegmenter(viewModel, it)
+//                    ImageSegmenter(viewModel)
+//                }
             }
         }
 

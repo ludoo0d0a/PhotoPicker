@@ -10,6 +10,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.mun.bonecci.photopicker.components.GetImageFromGallery
+import com.mun.bonecci.photopicker.components.ImageSegmenter
 import com.mun.bonecci.photopicker.ui.theme.PhotoPickerTheme
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
@@ -26,7 +27,8 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    GetImageFromGallery(viewModel = mainViewModel)
+                    GetImageFromGallery()
+                    ImageSegmenter(viewModel = mainViewModel)
                 }
             }
         }
