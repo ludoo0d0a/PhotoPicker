@@ -10,6 +10,7 @@ import androidx.activity.result.contract.ActivityResultContracts
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.ColumnScope
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
@@ -49,6 +50,7 @@ import androidx.core.content.FileProvider
 import com.google.accompanist.permissions.ExperimentalPermissionsApi
 import com.google.accompanist.permissions.isGranted
 import com.google.accompanist.permissions.rememberPermissionState
+import com.mun.bonecci.photopicker.MainViewModel
 import com.mun.bonecci.photopicker.ui.theme.dimen_10dp
 import com.mun.bonecci.photopicker.ui.theme.dimen_14dp
 import com.mun.bonecci.photopicker.ui.theme.dimen_16dp
@@ -56,6 +58,7 @@ import com.mun.bonecci.photopicker.ui.theme.dimen_18dp
 import com.mun.bonecci.photopicker.ui.theme.dimen_200dp
 import com.mun.bonecci.photopicker.utils.UriUtils
 import fr.geoking.wineocr.ui.TextRecognitionScreen
+import org.koin.compose.viewmodel.koinViewModel
 import java.io.File
 import java.io.IOException
 import java.text.SimpleDateFormat
@@ -69,7 +72,7 @@ import java.util.Date
  */
 @OptIn(ExperimentalPermissionsApi::class)
 @Composable
-fun GetImageFromGallery() {
+fun GetImageFromGallery(viewModel: MainViewModel = koinViewModel()) {
     // Retrieve the current context using LocalContext.current
     val context = LocalContext.current
 
@@ -118,7 +121,7 @@ fun GetImageFromGallery() {
     }
 
     @Throws(IOException::class)
-    fun createImageFile(): Uri {
+    fun createTempImageFile(): Uri {
         val timeStamp: String = SimpleDateFormat("yyyyMMdd_HHmmss").format(Date())
         val file = context.getExternalFilesDir(Environment.DIRECTORY_PICTURES).let { storageDir ->
              File.createTempFile(
@@ -134,7 +137,7 @@ fun GetImageFromGallery() {
         return FileProvider.getUriForFile(context, context.getPackageName() + ".provider", file)
     }
 
-    fun createImageFile2(): Uri {
+    fun createTempImageFile2(): Uri {
         val storageDir: File? = context.getExternalFilesDir(null)
         val imageFile = File.createTempFile("JPEG_${System.currentTimeMillis()}_", ".jpg", storageDir)
         return FileProvider.getUriForFile(context, "${context.packageName}.provider", imageFile)
@@ -158,13 +161,8 @@ fun GetImageFromGallery() {
     ) {
         if (isImageLoaded) {
             imageBitmap?.let {
-                Card(
-                    shape = RoundedCornerShape(dimen_14dp),
-                    modifier = Modifier.padding(dimen_10dp, dimen_16dp, dimen_10dp, dimen_16dp),
-                    elevation = CardDefaults.cardElevation(defaultElevation = dimen_10dp),
-                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
-                ) {
-
+                // rounded card
+                MyCard{
                     Image(
                         bitmap = it,
                         contentDescription = null,
@@ -180,17 +178,19 @@ fun GetImageFromGallery() {
                             )
                     )
                 }
-                Card(
-                    shape = RoundedCornerShape(dimen_14dp),
-                    modifier = Modifier.padding(dimen_10dp, dimen_16dp, dimen_10dp, dimen_16dp),
-                    elevation = CardDefaults.cardElevation(defaultElevation = dimen_10dp),
-                    colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
-                ) {
+                // TextRecognitionScreen
+                MyCard{
                     TextRecognitionScreen(it.asAndroidBitmap())
+                }
+                // Car
+                MyCard{
+//                    ImageSegmenter(viewModel, it)
+                    ImageSegmenter(viewModel)
                 }
             }
         }
 
+        // Actions buttons
         Row (
             modifier = Modifier.fillMaxSize(),
             horizontalArrangement = Arrangement.Center,
@@ -201,7 +201,7 @@ fun GetImageFromGallery() {
                 icon = Icons.Outlined.CameraAlt,
                 onClick = {
 //                    imageUri = createImageFile()
-                    imageUri = createImageFile2()
+                    imageUri = createTempImageFile2()
 //                    imageUri = getCameraFile()
                     imageUri?.let {
                         pickCamera.launch(it)
@@ -228,6 +228,17 @@ fun GetImageFromGallery() {
             }
         }
     }
+}
+
+@Composable
+fun MyCard(content: @Composable() (ColumnScope.() -> Unit)) {
+    Card(
+        shape = RoundedCornerShape(dimen_14dp),
+        modifier = Modifier.padding(dimen_10dp, dimen_16dp, dimen_10dp, dimen_16dp),
+        elevation = CardDefaults.cardElevation(defaultElevation = dimen_10dp),
+        colors = CardDefaults.cardColors(containerColor = MaterialTheme.colorScheme.primaryContainer),
+        content = content
+    )
 }
 
 /**

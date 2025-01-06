@@ -12,11 +12,20 @@ androidx-test-ext-junit = "1.2.1"
 espresso-core = "3.6.1"
 mlkit-text = "16.0.1"
 mlkit-vision = "17.3.0"
-ui-test-junit4 = "1.5.4"
+ui-test-junit4 = "1.7.6"
+segmentation-selfie = "16.0.0-beta6"
+koin-bom = "4.0.1"
+runtime-livedata = "1.7.6"
 
 [libraries]
 accompanist-permissions = { module = "com.google.accompanist:accompanist-permissions", version.ref = "accompanist-permissions" }
 core-ktx = { group = "androidx.core", name = "core-ktx", version.ref = "core-ktx" }
+koin-bom = { module = "io.insert-koin:koin-bom", version.ref = "koin-bom" }
+koin-compose = { module = "io.insert-koin:koin-compose", version.ref = "koin-bom" }
+koin-compose-viewmodel = { module = "io.insert-koin:koin-compose-viewmodel", version.ref = "koin-bom" }
+koin-compose-viewmodel-navigation = { module = "io.insert-koin:koin-compose-viewmodel-navigation", version.ref = "koin-bom" }
+koin-core = { module = "io.insert-koin:koin-core" }
+koin-android = { module = "io.insert-koin:koin-android" , version.ref = "koin-bom" }
 lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtime-ktx", version.ref = "lifecycle-runtime-ktx" }
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 
@@ -36,6 +45,8 @@ ui-test-manifest = { group = "androidx.compose.ui", name = "ui-test-manifest" }
 ui-test-junit4 = { group = "androidx.compose.ui", name = "ui-test-junit4" , version.ref = "ui-test-junit4"}
 text-recognition = { module = "com.google.mlkit:text-recognition", version.ref = "mlkit-text" }
 vision-common = { group = "com.google.mlkit", name = "vision-common", version.ref = "mlkit-vision" }
+segmentation-selfie = { group = "com.google.mlkit", name = "segmentation-selfie", version.ref = "segmentation-selfie" }
+androidx-runtime-livedata = { group = "androidx.compose.runtime", name = "runtime-livedata", version.ref = "runtime-livedata" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

@@ -62,7 +62,21 @@ dependencies {
     implementation(libs.compose.material3)
     implementation(libs.material.icons.extended)
     implementation(libs.text.recognition)
+    implementation(libs.vision.common)
     implementation(libs.accompanist.permissions)
+    implementation(libs.segmentation.selfie)
+
+    // KOIN
+//    implementation(libs.koin.core)
+    implementation(libs.koin.android)
+    implementation(libs.koin.compose)
+    implementation(libs.koin.compose.viewmodel)
+    implementation(libs.koin.compose.viewmodel.navigation)
+
+    //livedata
+    implementation(libs.androidx.runtime.livedata)
+
+
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)
