@@ -14,6 +14,7 @@ import com.google.mlkit.vision.segmentation.Segmenter
 import com.google.mlkit.vision.segmentation.selfie.SelfieSegmenterOptions
 import java.nio.ByteBuffer
 
+// https://medium.com/@khanhaiderali393/background-remover-app-using-jetpack-compose-15e7ac4f5f46
 class SegmentHelper(private val listener: ProcessedListener) {
     private val segmenter: Segmenter
     private lateinit var maskBuffer: ByteBuffer

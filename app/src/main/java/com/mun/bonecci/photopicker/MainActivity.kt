@@ -46,20 +46,20 @@ class MainActivity : ComponentActivity() {
                     bottomBar = {
                         NavigationBar {
                             NavigationBarItem(
-                                icon = { Icon(Icons.Default.Image, "Gallery") },
-                                label = { Text("Gallery") },
+                                icon = { Icon(Icons.Default.Image, "OCR") },
+                                label = { Text("OCR") },
                                 selected = selectedTab == 0,
                                 onClick = { selectedTab = 0 }
                             )
                             NavigationBarItem(
-                                icon = { Icon(Icons.Default.PhotoFilter, "Segment") },
-                                label = { Text("Segment") },
+                                icon = { Icon(Icons.Default.PhotoFilter, "MLKit Segment") },
+                                label = { Text("MLKit") },
                                 selected = selectedTab == 1,
                                 onClick = { selectedTab = 1 }
                             )
                             NavigationBarItem(
-                                icon = { Icon(Icons.Default.ContentCut, "Remove BG") },
-                                label = { Text("Remove BG") },
+                                icon = { Icon(Icons.Default.ContentCut, "U2Net RemoveBG") },
+                                label = { Text("U2Net") },
                                 selected = selectedTab == 2,
                                 onClick = { selectedTab = 2 }
                             )

@@ -43,6 +43,8 @@ import dev.eren.removebg.RemoveBg
 import kotlinx.coroutines.flow.onCompletion
 import kotlinx.coroutines.flow.onStart
 
+// https://github.com/AppcentMobile/removebg/blob/master/removebg/src/main/java/dev/eren/removebg/RemoveBg.kt
+//
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun RemoveBackground() {
