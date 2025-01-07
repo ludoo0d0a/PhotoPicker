@@ -24,6 +24,7 @@ import com.google.mlkit.vision.common.InputImage
 import com.google.mlkit.vision.text.TextRecognition
 import com.google.mlkit.vision.text.TextRecognizer
 import com.google.mlkit.vision.text.latin.TextRecognizerOptions
+import dev.eren.removebg.RemoveBg
 
 @Composable
 fun TextRecognitionScreen(bitmap: Bitmap) {
@@ -54,6 +55,8 @@ fun TextRecognitionScreen(bitmap: Bitmap) {
                 .fillMaxWidth()
                 .height(200.dp)
         )
+
+
         Spacer(modifier = Modifier.height(16.dp))
         Text(text = recognizedText)
     }

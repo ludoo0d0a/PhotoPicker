@@ -76,7 +76,8 @@ dependencies {
     //livedata
     implementation(libs.androidx.runtime.livedata)
 
-
+    // removeBg U2Net
+    implementation(libs.removebg)
 
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.test.ext.junit)

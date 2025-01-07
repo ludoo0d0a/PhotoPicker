@@ -182,10 +182,6 @@ fun GetImageFromGallery(/*viewModel: MainViewModel = koinViewModel()*/) {
                 MyCard{
                     TextRecognitionScreen(it.asAndroidBitmap())
                 }
-//                MyCard{
-////                    ImageSegmenter(viewModel, it)
-//                    ImageSegmenter(viewModel)
-//                }
             }
         }
 

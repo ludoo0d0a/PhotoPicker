@@ -12,6 +12,7 @@ androidx-test-ext-junit = "1.2.1"
 espresso-core = "3.6.1"
 mlkit-text = "16.0.1"
 mlkit-vision = "17.3.0"
+removebg = "1.0.4"
 ui-test-junit4 = "1.7.6"
 segmentation-selfie = "16.0.0-beta6"
 koin-bom = "4.0.1"
@@ -30,6 +31,7 @@ lifecycle-runtime-ktx = { group = "androidx.lifecycle", name = "lifecycle-runtim
 activity-compose = { group = "androidx.activity", name = "activity-compose", version.ref = "activity-compose" }
 
 material-icons-extended = { module = "androidx.compose.material:material-icons-extended", version.ref = "compose" }
+removebg = { module = "com.github.erenalpaslan:removebg", version.ref = "removebg" }
 ui = { group = "androidx.compose.ui", name = "ui" }
 ui-graphics = { group = "androidx.compose.ui", name = "ui-graphics" }
 compose-ui = { module = "androidx.compose.ui:ui", version.ref = "compose" }
